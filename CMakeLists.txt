@@ -27,8 +27,9 @@ protobuf_generate(
     PROTOC_OUT_DIR "${PROTO_BINARY_DIR}")
 
 
-add_executable(HelloWorld main.cpp)
+add_executable(HelloWorldServer server.cpp)
+target_link_libraries(HelloWorldServer PRIVATE proto-objects)
 
-
-target_link_libraries(HelloWorld PRIVATE proto-objects)
+add_executable(HelloWorldClient client.cpp)
+target_link_libraries(HelloWorldClient PRIVATE proto-objects)
 
